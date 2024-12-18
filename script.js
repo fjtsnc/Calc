@@ -18,8 +18,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 handleEqual();
             } else if (target.classList.contains('decimal')) {
                 inputDecimal();
-            } else if (target.classList.contains('zero')) {
-                inputDigit(value);
             } else {
                 inputDigit(value);
             }
