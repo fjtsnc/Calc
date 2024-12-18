@@ -2,31 +2,32 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>電卓 v1.03</title>
+    <title>電卓 v1.00</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>電卓 v1.03</h1>
+    <h1>電卓 v1.00</h1>
     <div class="calculator">
         <input type="text" class="display" disabled>
         <div class="buttons">
+            <button value="C" class="operator">C</button>
+            <button value="÷" class="operator">÷</button>
+            <button value="×" class="operator">×</button>
             <button value="7">7</button>
             <button value="8">8</button>
             <button value="9">9</button>
-            <button value="÷">÷</button>
+            <button value="-" class="operator">-</button>
             <button value="4">4</button>
             <button value="5">5</button>
             <button value="6">6</button>
-            <button value="×">×</button>
+            <button value="+" class="operator">+</button>
             <button value="1">1</button>
             <button value="2">2</button>
             <button value="3">3</button>
-            <button value="-">-</button>
-            <button value="0">0</button>
-            <button value="C">C</button>
-            <button value="=">=</button>
-            <button value="+">+</button>
+            <button value="=" class="equal">=</button>
+            <button value="0" class="zero">0</button>
+            <button value="." class="decimal">.</button>
         </div>
     </div>
     <script src="script.js"></script>
