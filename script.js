@@ -1,13 +1,15 @@
 document.addEventListener('DOMContentLoaded', function() {
     const display = document.querySelector('.display');
-    const buttons = document.querySelectorAll('button');
+    const buttons = document.querySelector('.buttons');
+
     let currentInput = '';
     let operator = '';
     let firstOperand = null;
 
-    buttons.forEach(button => {
-        button.addEventListener('click', () => {
-            const value = button.value;
+    buttons.addEventListener('click', function(event) {
+        const target = event.target;
+        if (target.tagName === 'BUTTON') {
+            const value = target.value;
 
             if (!isNaN(value)) {
                 // 数字が押された場合
@@ -37,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     currentInput = '';
                 }
             }
-        });
+        }
     });
 
     function calculate(a, b, op) {
