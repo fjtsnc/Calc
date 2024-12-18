@@ -16,7 +16,7 @@ body {
 
 .calculator {
     width: 100%;
-    max-width: 480px; /* 320px * 1.5 */
+    max-width: 400px; /* 幅を拡大 */
     background-color: #ffffff;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -26,11 +26,11 @@ body {
 
 .display {
     width: 100%;
-    height: 75px; /* 50px * 1.5 */
-    font-size: 36px; /* 24px * 1.5 */
+    height: 60px; /* 高さを拡大 */
+    font-size: 28px; /* フォントサイズを拡大 */
     text-align: right;
-    margin-bottom: 15px; /* 10px * 1.5 */
-    padding: 15px; /* 10px * 1.5 */
+    margin-bottom: 15px;
+    padding: 10px;
     box-sizing: border-box;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -40,13 +40,13 @@ body {
 .buttons {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 15px; /* 10px * 1.5 */
+    gap: 12px; /* ボタン間の隙間を拡大 */
 }
 
 button {
     width: 100%;
-    height: 90px; /* 60px * 1.5 */
-    font-size: 27px; /* 18px * 1.5 */
+    height: 70px; /* 高さを拡大 */
+    font-size: 24px; /* フォントサイズを拡大 */
     border: none;
     border-radius: 5px;
     background-color: #e0e0e0;
@@ -92,7 +92,7 @@ button.zero {
     grid-column: span 2;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 400px) {
     .display {
         font-size: 24px;
         height: 50px;
@@ -100,6 +100,6 @@ button.zero {
 
     button {
         height: 60px;
-        font-size: 18px;
+        font-size: 20px;
     }
 }
