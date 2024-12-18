@@ -10,7 +10,7 @@ body {
 
 .calculator {
     width: 100%;
-    max-width: 400px;
+    max-width: 320px;
     background-color: #ffffff;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -72,6 +72,7 @@ button.operator:active {
 button.equal {
     background-color: #34c759;
     color: #ffffff;
+    grid-column: span 2;
 }
 
 button.equal:hover {
@@ -82,7 +83,11 @@ button.equal:active {
     background-color: #2d9a46;
 }
 
-@media (max-width: 400px) {
+button.zero {
+    grid-column: span 2;
+}
+
+@media (max-width: 320px) {
     .display {
         font-size: 20px;
         height: 40px;
