@@ -1,99 +1,105 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const display = document.querySelector('.display');
-    const buttonsContainer = document.querySelector('.buttons');
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f5f5f5;
+}
 
-    let currentInput = '';
-    let operator = '';
-    let firstOperand = null;
-    let shouldResetDisplay = false;
+.title {
+    text-align: center;
+    margin-bottom: 20px;
+}
 
-    buttonsContainer.addEventListener('click', function(event) {
-        const target = event.target;
-        if (target.tagName === 'BUTTON') {
-            const value = target.value;
+.calculator {
+    width: 100%;
+    max-width: 480px; /* 320px * 1.5 */
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    box-sizing: border-box;
+}
 
-            if (target.classList.contains('operator')) {
-                handleOperator(value);
-            } else if (target.classList.contains('equal')) {
-                handleEqual();
-            } else if (target.classList.contains('decimal')) {
-                inputDecimal();
-            } else if (target.classList.contains('clear')) {
-                clearDisplay();
-            } else {
-                inputDigit(value);
-            }
-        }
-    });
+.display {
+    width: 100%;
+    height: 75px; /* 50px * 1.5 */
+    font-size: 36px; /* 24px * 1.5 */
+    text-align: right;
+    margin-bottom: 15px; /* 10px * 1.5 */
+    padding: 15px; /* 10px * 1.5 */
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #e9e9e9;
+}
 
-    function inputDigit(digit) {
-        if (shouldResetDisplay) {
-            display.value = digit;
-            shouldResetDisplay = false;
-        } else {
-            display.value = display.value === '0' ? digit : display.value + digit;
-        }
-        currentInput = display.value;
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px; /* 10px * 1.5 */
+}
+
+button {
+    width: 100%;
+    height: 90px; /* 60px * 1.5 */
+    font-size: 27px; /* 18px * 1.5 */
+    border: none;
+    border-radius: 5px;
+    background-color: #e0e0e0;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+button:hover {
+    background-color: #d0d0d0;
+}
+
+button:active {
+    background-color: #c0c0c0;
+}
+
+button.operator {
+    background-color: #ff9500;
+    color: #ffffff;
+}
+
+button.operator:hover {
+    background-color: #e08b00;
+}
+
+button.operator:active {
+    background-color: #c07a00;
+}
+
+button.equal {
+    background-color: #34c759;
+    color: #ffffff;
+}
+
+button.equal:hover {
+    background-color: #30b14f;
+}
+
+button.equal:active {
+    background-color: #2d9a46;
+}
+
+button.zero {
+    grid-column: span 2;
+}
+
+@media (max-width: 480px) {
+    .display {
+        font-size: 24px;
+        height: 50px;
     }
 
-    function inputDecimal() {
-        if (shouldResetDisplay) {
-            display.value = '0.';
-            shouldResetDisplay = false;
-        } else if (!display.value.includes('.')) {
-            display.value += '.';
-        }
-        currentInput = display.value;
+    button {
+        height: 60px;
+        font-size: 18px;
     }
-
-    function handleOperator(nextOperator) {
-        const inputValue = parseFloat(currentInput);
-
-        if (operator && shouldResetDisplay) {
-            operator = nextOperator;
-            return;
-        }
-
-        if (firstOperand == null && !isNaN(inputValue)) {
-            firstOperand = inputValue;
-        } else if (operator) {
-            const result = calculate(firstOperand, inputValue, operator);
-            display.value = `${parseFloat(result.toFixed(7))}`;
-            firstOperand = result;
-        }
-
-        operator = nextOperator;
-        shouldResetDisplay = true;
-    }
-
-    function handleEqual() {
-        const inputValue = parseFloat(currentInput);
-
-        if (operator && !shouldResetDisplay) {
-            const result = calculate(firstOperand, inputValue, operator);
-            display.value = `${parseFloat(result.toFixed(7))}`;
-            firstOperand = result;
-            operator = '';
-        }
-        shouldResetDisplay = true;
-    }
-
-    function clearDisplay() {
-        display.value = '0';
-        currentInput = '';
-        operator = '';
-        firstOperand = null;
-        shouldResetDisplay = false;
-    }
-
-    function calculate(a, b, op) {
-        switch (op) {
-            case '+':
-                return a + b;
-            case '-':
-                return a - b;
-            case '×':
-                return a * b;
-
-::contentReference[oaicite:0]{index=0}
- 
+}
