@@ -18,6 +18,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 handleEqual();
             } else if (target.classList.contains('decimal')) {
                 inputDecimal();
+            } else if (target.classList.contains('clear')) {
+                clearDisplay();
             } else {
                 inputDigit(value);
             }
@@ -76,6 +78,14 @@ document.addEventListener('DOMContentLoaded', function() {
         shouldResetDisplay = true;
     }
 
+    function clearDisplay() {
+        display.value = '0';
+        currentInput = '';
+        operator = '';
+        firstOperand = null;
+        shouldResetDisplay = false;
+    }
+
     function calculate(a, b, op) {
         switch (op) {
             case '+':
@@ -85,7 +95,7 @@ document.addEventListener('DOMContentLoaded', function() {
             case '×':
                 return a * b;
             case '÷':
-                return b !== 0 ? a / b : 'エラー';
+                return a / b;
             default:
                 return b;
         }
