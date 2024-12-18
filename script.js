@@ -1,12 +1,12 @@
 document.addEventListener('DOMContentLoaded', function() {
     const display = document.querySelector('.display');
-    const buttons = document.querySelector('.buttons');
+    const buttonsContainer = document.querySelector('.buttons');
 
     let currentInput = '';
     let operator = '';
     let firstOperand = null;
 
-    buttons.addEventListener('click', function(event) {
+    buttonsContainer.addEventListener('click', function(event) {
         const target = event.target;
         if (target.tagName === 'BUTTON') {
             const value = target.value;
