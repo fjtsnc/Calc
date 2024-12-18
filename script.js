@@ -64,40 +64,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
         operator = nextOperator;
         shouldResetDisplay = true;
-    }
 
-    function handleEqual() {
-        const inputValue = parseFloat(currentInput);
-
-        if (operator && !shouldResetDisplay) {
-            const result = calculate(firstOperand, inputValue, operator);
-            display.value = `${parseFloat(result.toFixed(7))}`;
-            firstOperand = result;
-            operator = '';
-        }
-        shouldResetDisplay = true;
-    }
-
-    function clearDisplay() {
-        display.value = '0';
-        currentInput = '';
-        operator = '';
-        firstOperand = null;
-        shouldResetDisplay = false;
-    }
-
-    function calculate(a, b, op) {
-        switch (op) {
-            case '+':
-                return a + b;
-            case '-':
-                return a - b;
-            case '×':
-                return a * b;
-            case '÷':
-                return a / b;
-            default:
-                return b;
-        }
-    }
-});
+::contentReference[oaicite:0]{index=0}
+ 
